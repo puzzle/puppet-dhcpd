@@ -26,7 +26,7 @@ class dhcpd::base {
     }
 
     file{'/etc/dhcpd.conf':
-        source =>  [ "puppet://$server/files/dhcpd/${fqdn}/dhcpd",
+        source =>  [ "puppet://$server/files/dhcpd/${fqdn}/dhcpd.conf",
                     "puppet://$server/dhcpd/dhcpd.conf" ],
         require => Package[dhcp],
         notify => Service['dhcpd'],
