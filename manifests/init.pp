@@ -22,7 +22,7 @@ class dhcpd::base {
         ensure => running,
         enable => true,
         hasstatus => true,
-        require => [ Package[dhcpd], File['/etc/dhcpd.conf'] ],
+        require => [ Package[dhcp], File['/etc/dhcpd.conf'] ],
     }
 
     file{'/etc/dhcpd.conf':
