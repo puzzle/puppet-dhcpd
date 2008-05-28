@@ -29,17 +29,17 @@ class dhcpd::base {
         source =>  [ "puppet://$server/files/dhcpd/${fqdn}/dhcpd",
                     "puppet://$server/dhcpd/dhcpd.conf" ],
         require => Package[dhcp],
-        notify => Service[dhcpd],
+        notify => Service['dhcpd'],
         owner => root, group => 0, mode => '0644';
     }
 }
 
-class dhcpd::centos {
+class dhcpd::centos inherits dhcpd::base {
     file{'/etc/sysconfig/dhcpd':
         source => [ "puppet://$server/files/dhcpd/sysconfig/${fqdn}/dhcpd",
                     "puppet://$server/dhcpd/sysconfig/dhcpd" ],
         require => Package[dhcp],
-        notify => Service[dhcpd],
+        notify => Service['dhcpd'],
         owner => root, group => 0, mode => '0644';
     }
 
