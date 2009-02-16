@@ -4,8 +4,6 @@
 # GPLv3
 #######################################
 
-
-# modules_dir { "dhcpd": }
 class dhcpd {
     case $operatingsystem {
         centos: { include dhcpd::centos }
